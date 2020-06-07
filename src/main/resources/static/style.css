@@ -1,0 +1,95 @@
+h1 {
+	font-family: Fontdiner Swanky, sans-serif;
+	font-size: 1rem;
+}
+
+.status {
+	color: #000000;
+}
+
+.turn-message {
+	color: #ff2600;
+}
+
+body {
+	text-align: center;
+	font-size: 1rem;
+	margin-top: 1em;
+	background-color: #f0efe7;
+}
+
+.board {
+	height: 450px;
+	width: 900px;
+	max-width: 100%;
+	background: url(/images/background.jpg) center;
+	display: flex;
+	border: 1px solid #6b6b6b;
+	border-radius: 50px;
+	box-shadow: 1 1 5px #454545;
+	margin: 8px auto;
+}
+
+.table {
+	flex: 6;
+	display: flex;
+	flex-direction: column;
+}
+
+.row {
+	flex: 6;
+	display: flex;
+}
+
+.first .pit {
+	color: #00faff;
+	cursor: pointer;
+}
+
+.second .pit {
+	color: #000000;
+	cursor: not-allowed;
+}
+
+.pit {
+	background-color: rgba(192, 192, 192, 0.3);
+	display: flex;
+	margin: 10px;
+	flex: 1;
+	border-radius: 50%;
+	align-items: center;
+	justify-content: center;
+}
+
+.big-pit {
+	cursor: not-allowed;
+	background-color: rgba(192, 192, 192, 0.4);
+	color: #f50014;
+	border-radius: 100%;
+	display: flex;
+	box-shadow: inset 2 0 5px #000000;
+	margin: 10px;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+}
+
+[animate-on-change] {
+	transition: all 1s;
+	-webkit-transition: all 1s ease-in-out;
+}
+
+[animate-on-change].changed-increased {
+	background-color: green;
+	transition: all 1s;
+	-webkit-transition: all 1s ease-in-out;
+	opacity: 0.5;
+}
+
+[animate-on-change].changed-decreased {
+	background-color: red;
+	transition: all 1s;
+	-webkit-transition: all 1s ease-in-out;
+	opacity: 0.5;
+}

@@ -1,0 +1,10 @@
+version: "3"
+services:
+  mongodb-service:
+    image: mongo:4.0.0
+    container_name: "mongodb-service"
+    ports:
+      - 27017:27017
+    volumes:
+        - ./data/db:/data/db
+    hostname: mongodb-service

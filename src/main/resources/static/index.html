@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html data-ng-app="mancalaGame">
+<head>
+<title>Mancala By Volkan Ozkan</title>
+<link href="/style.css" rel="stylesheet">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/mancala.js"></script>
+</head>
+
+<body data-ng-controller="mancalaController" class="ng-cloak">
+	<p class="turn-message" data-ng-bind="turnMessage"></p>
+	<p class="status" data-ng-bind="gameStatus"></p>
+
+	<h1>{{opponentName}}</h1>
+	<div class="board">
+
+		<span class="big-pit" animate-on-change="opponentBigPit">{{opponentBigPit}}</span>
+
+		<div class="table">
+			<div class="row second">
+				<span class="pit" data-ng-repeat="i in [5,4,3,2,1,0]"
+					animate-on-change="opponentPits[i]">{{opponentPits[i]}}</span>
+			</div>
+
+			<div class="row first">
+				<span class="pit" data-ng-repeat="i in [0,1,2,3,4,5]"
+					data-ng-click="move(i)" animate-on-change="myPits[i]">{{myPits[i]}}</span>
+			</div>
+		</div>
+		<span class="big-pit" animate-on-change="myBigPit">{{myBigPit}}</span>
+	</div>
+	<h1>{{myName}}</h1>
+</body>
+</html>
