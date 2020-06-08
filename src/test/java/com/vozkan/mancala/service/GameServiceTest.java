@@ -47,7 +47,7 @@ public class GameServiceTest {
 		List<Game> gameList = gameService.listAllGames();
 		Assert.assertNotNull(gameList);
 		Assert.assertFalse(gameList.isEmpty());
-		Assert.assertTrue(gameList.size() == 1);
+		Assert.assertEquals(1, gameList.size());
 	}
 
 	@Test
@@ -61,7 +61,7 @@ public class GameServiceTest {
 		List<Game> gameList2 = gameService.listAvailableGames();
 		Assert.assertNotNull(gameList2);
 		Assert.assertFalse(gameList2.isEmpty());
-		Assert.assertTrue(gameList2.size() == 1);
+		Assert.assertEquals(1, gameList2.size());
 
 		gameService.terminateGame(game.getGameId());
 		List<Game> gameList3 = gameService.listAvailableGames();
@@ -125,8 +125,8 @@ public class GameServiceTest {
 
 		gameService.calculateWinner(game);
 
-		Assert.assertTrue(Arrays.equals(game.getBoard().getFirstPlayerPits(), new int[] { 0, 0, 0, 0, 0, 0 }));
-		Assert.assertTrue(Arrays.equals(game.getBoard().getSecondPlayerPits(), new int[] { 0, 0, 0, 0, 0, 0 }));
+		Assert.assertArrayEquals(game.getBoard().getFirstPlayerPits(), new int[]{0, 0, 0, 0, 0, 0});
+		Assert.assertArrayEquals(game.getBoard().getSecondPlayerPits(), new int[]{0, 0, 0, 0, 0, 0});
 
 		Assert.assertEquals(52, game.getBoard().getFirstPlayerBigPit());
 		Assert.assertEquals(24, game.getBoard().getSecondPlayerBigPit());
@@ -151,8 +151,8 @@ public class GameServiceTest {
 				+ Arrays.stream(game.getBoard().getSecondPlayerPits()).sum() + game.getBoard().getFirstPlayerBigPit()
 				+ game.getBoard().getSecondPlayerBigPit();
 		Assert.assertEquals(72, totalStones);
-		Assert.assertTrue(Arrays.equals(game.getBoard().getFirstPlayerPits(), new int[] { 0, 0, 0, 0, 0, 0 }));
-		Assert.assertTrue(Arrays.equals(game.getBoard().getSecondPlayerPits(), new int[] { 0, 0, 0, 0, 0, 0 }));
+		Assert.assertArrayEquals(game.getBoard().getFirstPlayerPits(), new int[]{0, 0, 0, 0, 0, 0});
+		Assert.assertArrayEquals(game.getBoard().getSecondPlayerPits(), new int[]{0, 0, 0, 0, 0, 0});
 		Assert.assertEquals(GameStatus.FINISHED_P2_WON, game.getGameStatus());
 	}
 
@@ -311,16 +311,16 @@ public class GameServiceTest {
 
 		List<Game> games = gameService.listAllGames();
 		Assert.assertNotNull(games);
-		Assert.assertTrue(games.size() == 3);
+		Assert.assertEquals(3, games.size());
 
 		List<Game> availableGames = gameService.listAvailableGames();
 		Assert.assertNotNull(availableGames);
-		Assert.assertTrue(availableGames.size() == 1);
+		Assert.assertEquals(1, availableGames.size());
 
 		gameService.terminateAllLegacyGames();
 
 		availableGames = gameService.listAvailableGames();
-		Assert.assertTrue(availableGames.size() == 1);
+		Assert.assertEquals(1, availableGames.size());
 
 		game3.setStartedAt(LocalDateTime.now().minusHours(1));
 		gameService.updateGame(game3);
@@ -328,7 +328,7 @@ public class GameServiceTest {
 		gameService.terminateAllLegacyGames();
 
 		games = gameService.listAllGames();
-		Assert.assertTrue(games.size() == 3);
+		Assert.assertEquals(3, games.size());
 		availableGames = gameService.listAvailableGames();
 		Assert.assertTrue(availableGames.isEmpty());
 	}

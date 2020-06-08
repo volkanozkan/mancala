@@ -18,8 +18,11 @@ import java.time.LocalDateTime;
 public class Scheduler {
 	private static final Logger log = LoggerFactory.getLogger(Scheduler.class);
 
-	@Autowired
-	GameService gameService;
+	private final GameService gameService;
+
+	public Scheduler(GameService gameService) {
+		this.gameService = gameService;
+	}
 
 	/**
 	 * After Every 30 minutes(1800000 ms) this method will terminate the games that

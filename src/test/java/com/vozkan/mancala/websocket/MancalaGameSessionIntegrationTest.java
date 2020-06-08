@@ -30,8 +30,8 @@ public class MancalaGameSessionIntegrationTest {
 	private SecondPlayerWebSocketClient secondPlayer;
 	private WebSocketContainer webSocketContainer;
 
-	private CountDownLatch messageLatch = new CountDownLatch(6);
-	private CountDownLatch closeSessionLatch = new CountDownLatch(1);
+	private final CountDownLatch messageLatch = new CountDownLatch(6);
+	private final CountDownLatch closeSessionLatch = new CountDownLatch(1);
 
 	@Mock
 	private DummyMockClass dummyMockClass;
@@ -129,7 +129,7 @@ public class MancalaGameSessionIntegrationTest {
 
 	}
 
-	private class DummyMockClass {
+	private static class DummyMockClass {
 		void dummy() {
 		}
 	}

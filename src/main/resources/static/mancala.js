@@ -10,7 +10,7 @@ app.controller('mancalaController', function($scope, $window) {
         '/ws?' + username);
 
     websocket.onclose = function(event) {
-        $window.alert("Game ended, refresh the page to play again!");
+        $window.alert("Game is over, refresh the page to play again!");
     };
 
     websocket.onmessage = function(event) {
@@ -89,7 +89,7 @@ app.directive('animateOnChange', function($timeout) {
     return function(scope, element, attr) {
         scope.$watch(attr.animateOnChange, function(nv, ov) {
             if (nv !== ov) {
-                var c;
+                let c;
 
                 if (nv > ov) {
                     c = 'changed-increased';

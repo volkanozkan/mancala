@@ -7,11 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.Environment;
 
 @SpringBootApplication
-public class VolkanOzkanMancalaGame {
-	private static final Logger logger = LoggerFactory.getLogger(VolkanOzkanMancalaGame.class);
+public class MancalaGameApplication {
+	private static final Logger logger = LoggerFactory.getLogger(MancalaGameApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplication app = new SpringApplication(VolkanOzkanMancalaGame.class);
+		SpringApplication app = new SpringApplication(MancalaGameApplication.class);
 
 		Environment environment = app.run(args).getEnvironment();
 		logger.info("-------------Application started on http://localhost:{}-------------",

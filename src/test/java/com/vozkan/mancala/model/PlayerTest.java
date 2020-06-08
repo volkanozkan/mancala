@@ -46,8 +46,8 @@ public class PlayerTest {
 		Player player4 = new Player("Test User2", webSocketSession.getId(), UUID.randomUUID());
 
 		Assert.assertTrue(player.equals(player2) && player2.equals(player));
-		Assert.assertTrue(player.hashCode() == player2.hashCode());
-		Assert.assertFalse(player3.hashCode() == player2.hashCode());
+		Assert.assertEquals(player.hashCode(), player2.hashCode());
+		Assert.assertNotEquals(player3.hashCode(), player2.hashCode());
 		Assert.assertFalse(player.equals(player3) && player3.equals(player));
 		Assert.assertFalse(player4.equals(player3) && player3.equals(player4));
 	}

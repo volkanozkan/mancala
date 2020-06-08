@@ -43,7 +43,7 @@ public class PlayerServiceTest {
 	}
 
 	@Test
-	public void shoulGetPlayerBySessionId() {
+	public void shouldGetPlayerBySessionId() {
 		Player nullPlayer = playerService.getPlayerBySessionId("300");
 		Assert.assertNull(nullPlayer);
 

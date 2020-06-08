@@ -115,7 +115,7 @@ public class GameRepositoryTest {
 
 		Assert.assertNotNull(unfinishedGames);
 		Assert.assertFalse(unfinishedGames.isEmpty());
-		Assert.assertTrue(unfinishedGames.size() == 4);
+		Assert.assertEquals(4, unfinishedGames.size());
 	}
 
 }

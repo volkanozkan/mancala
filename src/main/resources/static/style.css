@@ -26,7 +26,6 @@ body {
 	display: flex;
 	border: 1px solid #6b6b6b;
 	border-radius: 50px;
-	box-shadow: 1 1 5px #454545;
 	margin: 8px auto;
 }
 
@@ -67,7 +66,6 @@ body {
 	color: #f50014;
 	border-radius: 100%;
 	display: flex;
-	box-shadow: inset 2 0 5px #000000;
 	margin: 10px;
 	flex: 1;
 	justify-content: center;
